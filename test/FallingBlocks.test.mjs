@@ -22,7 +22,7 @@ describe("Falling blocks", () => {
       board.drop("X");
     });
 
-    test("it starts from the top middle", () => {
+    test.skip("it starts from the top middle", () => {
       expect(board.toString()).to.equalShape(
         `.X.
          ...

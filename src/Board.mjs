@@ -1,18 +1,19 @@
 export class Board {
   width;
   height;
+  board;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
-  }
-
-  toString() {
-    let board =
+    this.board =
       `...
       ...
       ...`;
-    return this.normalize(board);
+  }
+
+  toString() {
+    return this.normalize(this.board);
   }
 
   normalize(s) {
