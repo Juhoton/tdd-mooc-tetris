@@ -4,6 +4,7 @@ export class Board {
   board;
   tickCount;
   falling;
+  block;
 
   constructor(width, height) {
     this.width = width;
@@ -23,6 +24,7 @@ export class Board {
   drop(block) {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
+    this.block = block;
     this.board =
       `.X.
       ...
@@ -45,7 +47,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.tickCount === (3||0)) {
+    if (this.tickCount === 3 || this.tickCount === 0 && !this.block) {
       this.falling = false;
     } else {
       this.falling = true;
