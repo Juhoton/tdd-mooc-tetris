@@ -24,7 +24,8 @@ export class Board {
       `.X.
       ...
       ...`;
-    if (block === 'Y') throw new Error("already falling");
+    if (this.falling === true) throw new Error("already falling");
+    this.falling = true;
   }
 
   tick() {
