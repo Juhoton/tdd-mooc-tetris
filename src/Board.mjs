@@ -23,6 +23,13 @@ export class Board {
       ...`;
   }
 
+  tick() {
+    this.board =
+      `...
+      .X.
+      ...`;
+  }
+
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
   } // prob wrong location
