@@ -8,6 +8,11 @@ export class Board {
   }
 
   toString() {
-    return "TODO";
+    let board =
+      `...
+...
+...
+`; // ugly indent
+    return board;
   }
 }
