@@ -10,9 +10,12 @@ export class Board {
   toString() {
     let board =
       `...
-...
-...
-`; // ugly indent
-    return board;
+      ...
+      ...`;
+    return this.normalize(board);
   }
+
+  normalize(s) {
+    return s.replaceAll(" ", "").trim() + "\n";
+  } // prob wrong location
 }
