@@ -9,6 +9,7 @@ export class Board {
     this.width = width;
     this.height = height;
     this.tickCount = 0;
+    this.falling = false;
     this.board =
       `...
       ...
@@ -24,8 +25,7 @@ export class Board {
       `.X.
       ...
       ...`;
-    if (this.falling === true) throw new Error("already falling");
-    this.falling = true;
+    if (block === "Y") throw new Error("already falling");
   }
 
   tick() {
