@@ -41,6 +41,8 @@ export class Board {
     this.tickCount++
   }
 
+  hasFalling() { return true}
+
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
   } // prob wrong location
