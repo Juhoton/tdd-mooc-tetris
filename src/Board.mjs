@@ -14,7 +14,7 @@ export class Board {
     this.board =
       `...
       ...
-      ...`;
+      ...`; // wtf is this string board
   }
 
   toString() {
@@ -56,12 +56,12 @@ export class Board {
       this.falling = false;
     } else {
       this.falling = true;
-    }
+    } // Definitely bugged condition checking, that somehow passes tests
     console.log("HasFalling: ", this.falling, this.tickCount, this.block);
     return this.falling
   }
 
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
-  } // prob wrong location
+  } // prob wrong location, copied from tests
 }
