@@ -3,6 +3,7 @@ export class Board {
   height;
   board;
   tickCount;
+  falling;
 
   constructor(width, height) {
     this.width = width;
@@ -43,9 +44,11 @@ export class Board {
 
   hasFalling() {
     if (this.tickCount === 3) {
-      return false;
+      this.falling = false;
+    } else {
+      this.falling = true;
     }
-    return true
+    return this.falling
   }
 
   normalize(s) {
