@@ -21,11 +21,12 @@ export class Board {
   }
 
   drop(block) {
+    if (this.hasFalling()) throw new Error("already falling");
+    this.falling = true;
     this.board =
       `.X.
       ...
       ...`;
-    if (block === "Y") throw new Error("already falling");
   }
 
   tick() {
@@ -44,7 +45,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.tickCount === 3) {
+    if (this.tickCount === (3||0)) {
       this.falling = false;
     } else {
       this.falling = true;
