@@ -16,6 +16,13 @@ export class Board {
     return this.normalize(this.board);
   }
 
+  drop() {
+    this.board =
+      `.X.
+      ...
+      ...`;
+  }
+
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
   } // prob wrong location
