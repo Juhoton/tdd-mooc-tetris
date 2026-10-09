@@ -41,7 +41,12 @@ export class Board {
     this.tickCount++
   }
 
-  hasFalling() { return true}
+  hasFalling() {
+    if (this.tickCount === 3) {
+      return false;
+    }
+    return true
+  }
 
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
