@@ -37,6 +37,11 @@ export class Board {
         `...
         .X.
         ...`;
+    } else if (this.tickCount >= 3) {
+      this.board =
+        `...
+        .Y.
+        .X.`;
     } else {
       this.board =
         `...
@@ -47,11 +52,12 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.tickCount === 3 || this.tickCount === 0 && !this.block) {
+    if (this.tickCount === 3 || this.tickCount === 5 || this.tickCount === 0  && !this.block) {
       this.falling = false;
     } else {
       this.falling = true;
     }
+    console.log("HasFalling: ", this.falling, this.tickCount, this.block);
     return this.falling
   }
 
