@@ -16,11 +16,12 @@ export class Board {
     return this.normalize(this.board);
   }
 
-  drop() {
+  drop(block) {
     this.board =
       `.X.
       ...
       ...`;
+    if (block === 'Y') throw new Error("already falling");
   }
 
   tick() {
