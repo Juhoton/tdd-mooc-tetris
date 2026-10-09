@@ -2,10 +2,12 @@ export class Board {
   width;
   height;
   board;
+  tickCount;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.tickCount = 0;
     this.board =
       `...
       ...
@@ -25,10 +27,13 @@ export class Board {
   }
 
   tick() {
-    this.board =
-      `...
-      .X.
-      ...`;
+    if (this.tickCount === 0) {
+      this.board =
+        `...
+        .X.
+        ...`;
+    }
+
   }
 
   normalize(s) {
