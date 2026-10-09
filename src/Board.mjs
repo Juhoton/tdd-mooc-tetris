@@ -32,8 +32,13 @@ export class Board {
         `...
         .X.
         ...`;
+    } else {
+      this.board =
+        `...
+        ...
+        .X.`;
     }
-
+    this.tickCount++
   }
 
   normalize(s) {
