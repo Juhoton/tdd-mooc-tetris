@@ -57,7 +57,7 @@ export class Board {
     } else {
       this.falling = true;
     } // Definitely bugged condition checking, that somehow passes tests
-    console.log("HasFalling: ", this.falling, this.tickCount, this.block);
+    // console.log("HasFalling: ", this.falling, this.tickCount, this.block);
     return this.falling
   }
 
