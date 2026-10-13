@@ -1,30 +1,29 @@
 import { each } from "lodash";
 
 export class RotatingShape {
-  shape;
+  shapeMatrix;
 
   constructor(s) {
-    this.shape = s;
+    this.shapeMatrix = s;
   }
 
   static fromString(givenString) {
     let s = givenString.replaceAll(" ", "").replaceAll("\n", "")
-    let tempShape = [
+    let matrix = [
       [s[0],s[1],s[2]],
       [s[3],s[4],s[5]],
       [s[6],s[7],s[8]]
     ];
-    let rotatingShape = new RotatingShape(tempShape);
-    return rotatingShape;
+    return new RotatingShape(matrix);
   }
 
   toString() {
-    let temp = "";
-    this.shape.forEach((list) => {
-      list.forEach((square) => temp = temp.concat(square))
-      temp = temp.concat("\n");
+    let s = "";
+    this.shapeMatrix.forEach((list) => {
+      list.forEach((square) => s = s.concat(square))
+      s = s.concat("\n");
     });
-    return temp;
+    return s;
   }
 
   static normalize(s) {
