@@ -27,12 +27,12 @@ export class RotatingShape {
   }
 
   rotateRight() {
-    this.shapeMatrix = [
+    let matrix = [
       [this.shapeMatrix[2][0], this.shapeMatrix[1][0], this.shapeMatrix[0][0]],
       [this.shapeMatrix[2][1], this.shapeMatrix[1][1], this.shapeMatrix[0][1]],
       [this.shapeMatrix[2][2], this.shapeMatrix[1][2], this.shapeMatrix[0][2]]
     ];
-    return this;
+    return new RotatingShape(matrix);
   }
 
   static normalize(s) {
