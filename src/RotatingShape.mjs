@@ -27,11 +27,10 @@ export class RotatingShape {
   }
 
   rotateRight() {
-    let m = this.shapeMatrix;
     this.shapeMatrix = [
-      [m[2][0], m[1][0], m[0][0]],
-      [m[2][1], m[1][1], m[0][1]],
-      [m[2][2], m[1][2], m[0][2]]
+      [this.shapeMatrix[2][0], this.shapeMatrix[1][0], this.shapeMatrix[0][0]],
+      [this.shapeMatrix[2][1], this.shapeMatrix[1][1], this.shapeMatrix[0][1]],
+      [this.shapeMatrix[2][2], this.shapeMatrix[1][2], this.shapeMatrix[0][2]]
     ];
     return this;
   }
