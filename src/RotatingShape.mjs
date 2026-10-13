@@ -8,7 +8,7 @@ export class RotatingShape {
   }
 
   static fromString(givenString) {
-    let s = givenString.replaceAll(" ", "").replaceAll("\n", "")
+    let s = givenString.replaceAll(" ", "").replaceAll("\n", "");
     let matrix = [];
     let sPos = 0;
     for (let row = 0; row < Math.sqrt(s.length); row++) {
@@ -24,7 +24,7 @@ export class RotatingShape {
   toString() {
     let s = "";
     this.shapeMatrix.forEach((list) => {
-      list.forEach((square) => s = s.concat(square))
+      list.forEach((square) => (s = s.concat(square)));
       s = s.concat("\n");
     });
     return s;
@@ -34,10 +34,8 @@ export class RotatingShape {
     let matrix = [];
     for (let row = 0; row < this.shapeMatrix.length; row++) {
       matrix.push([]);
-      let revPos = this.shapeMatrix.length - 1;
-      for (let pos = 0; pos < this.shapeMatrix.length; pos++) {
+      for (let pos = 0, revPos = this.shapeMatrix.length - 1; pos < this.shapeMatrix.length; pos++, revPos--) {
         matrix[row][pos] = this.shapeMatrix[revPos][row];
-        revPos--;
       }
     }
     return new RotatingShape(matrix);
@@ -45,13 +43,11 @@ export class RotatingShape {
 
   rotateLeft() {
     let matrix = [];
-    let revRow = this.shapeMatrix.length - 1;
-    for (let row = 0; row < this.shapeMatrix.length; row++) {
+    for (let row = 0, revRow = this.shapeMatrix.length - 1; row < this.shapeMatrix.length; row++, revRow--) {
       matrix.push([]);
       for (let pos = 0; pos < this.shapeMatrix.length; pos++) {
         matrix[row][pos] = this.shapeMatrix[pos][revRow];
       }
-      revRow--;
     }
     return new RotatingShape(matrix);
   }
