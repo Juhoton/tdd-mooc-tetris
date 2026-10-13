@@ -2,12 +2,12 @@ export class RotatingShape {
   shape;
 
   constructor(s) {
-    this.shape = s;
+    this.shape = RotatingShape.normalize(s);
   }
 
   static fromString(s) {
     let rotatingShape = new RotatingShape(s);
-    return this.normalize(s);
+    return rotatingShape.shape;
   }
 
   static normalize(s) {
