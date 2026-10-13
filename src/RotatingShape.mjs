@@ -1,3 +1,5 @@
+import { each } from "lodash";
+
 export class RotatingShape {
   shape;
 
@@ -11,12 +13,19 @@ export class RotatingShape {
       [s[3],s[4],s[5]],
       [s[6],s[7],s[8]]
     ];
+    console.log(temp);
     let rotatingShape = new RotatingShape(temp);
     return this.normalize(s);
   }
 
   toString() {
-    return this.shape
+    let temp = "";
+    this.shape.forEach((list) =>
+      list.forEach((square) =>
+        temp = temp.concat(square))
+    );
+    console.log(temp);
+    return temp;
   }
 
   static normalize(s) {
