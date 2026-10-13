@@ -55,8 +55,4 @@ export class RotatingShape {
     }
     return new RotatingShape(matrix);
   }
-
-  static normalize(s) {
-    return s.replaceAll(" ", "").trim() + "\n";
-  }
 }
