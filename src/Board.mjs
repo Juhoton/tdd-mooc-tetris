@@ -19,7 +19,6 @@ export class Board {
         this.boardMatrix[i].push(".");
       }
     }
-    console.log(this.boardMatrix);
     this.board =
       `...
       ...
