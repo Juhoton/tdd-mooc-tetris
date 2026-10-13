@@ -7,7 +7,11 @@ export class RotatingShape {
 
   static fromString(s) {
     let rotatingShape = new RotatingShape(s);
-    return rotatingShape.shape;
+    return rotatingShape;
+  }
+
+  toString() {
+    return this.shape
   }
 
   static normalize(s) {
