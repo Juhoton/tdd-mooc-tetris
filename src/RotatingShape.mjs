@@ -7,15 +7,18 @@ export class RotatingShape {
     this.shape = s;
   }
 
-  static fromString(s) {
-    let temp = [
+  static fromString(givenString) {
+    console.log(givenString);
+    let s = givenString.replaceAll(" ", "").replaceAll("\n", "")
+    console.log(s);
+    let tempShape = [
       [s[0],s[1],s[2]],
       [s[3],s[4],s[5]],
       [s[6],s[7],s[8]]
     ];
-    console.log(temp);
-    let rotatingShape = new RotatingShape(temp);
-    return this.normalize(s);
+    console.log(tempShape);
+    let rotatingShape = new RotatingShape(tempShape);
+    return this.normalize(givenString);
   }
 
   toString() {
