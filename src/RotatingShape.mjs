@@ -32,9 +32,10 @@ export class RotatingShape {
 
   rotateRight() {
     let matrix = [];
-    for (let row = 0; row < this.shapeMatrix.length; row++) {
+    let mLen = this.shapeMatrix.length;
+    for (let row = 0; row < mLen; row++) {
       matrix.push([]);
-      for (let pos = 0, revPos = this.shapeMatrix.length - 1; pos < this.shapeMatrix.length; pos++, revPos--) {
+      for (let pos = 0, revPos = mLen - 1; pos < mLen; pos++, revPos--) {
         matrix[row][pos] = this.shapeMatrix[revPos][row];
       }
     }
@@ -43,9 +44,10 @@ export class RotatingShape {
 
   rotateLeft() {
     let matrix = [];
-    for (let row = 0, revRow = this.shapeMatrix.length - 1; row < this.shapeMatrix.length; row++, revRow--) {
+    let mLen = this.shapeMatrix.length;
+    for (let row = 0, revRow = mLen - 1; row < mLen; row++, revRow--) {
       matrix.push([]);
-      for (let pos = 0; pos < this.shapeMatrix.length; pos++) {
+      for (let pos = 0; pos < mLen; pos++) {
         matrix[row][pos] = this.shapeMatrix[pos][revRow];
       }
     }
