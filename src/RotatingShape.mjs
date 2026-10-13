@@ -10,12 +10,12 @@ export class RotatingShape {
   static fromString(givenString) {
     let s = givenString.replaceAll(" ", "").replaceAll("\n", "")
     let matrix = [];
-    let count = 0;
-    for (let i = 0; i < Math.sqrt(s.length); i++) {
+    let sPos = 0;
+    for (let row = 0; row < Math.sqrt(s.length); row++) {
       matrix.push([]);
-      for (let j = 0; j < Math.sqrt(s.length); j++) {
-        matrix[i][j] = s[count];
-        count++;
+      for (let pos = 0; pos < Math.sqrt(s.length); pos++) {
+        matrix[row][pos] = s[sPos];
+        sPos++;
       }
     }
     return new RotatingShape(matrix);
@@ -34,10 +34,10 @@ export class RotatingShape {
     let matrix = [];
     for (let row = 0; row < this.shapeMatrix.length; row++) {
       matrix.push([]);
-      let pointer = this.shapeMatrix.length - 1;
+      let revPos = this.shapeMatrix.length - 1;
       for (let pos = 0; pos < this.shapeMatrix.length; pos++) {
-        matrix[row][pos] = this.shapeMatrix[pointer][row];
-        pointer--;
+        matrix[row][pos] = this.shapeMatrix[revPos][row];
+        revPos--;
       }
     }
     return new RotatingShape(matrix);
