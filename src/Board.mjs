@@ -2,6 +2,7 @@ export class Board {
   width;
   height;
   board;
+  boardMatrix;
   tickCount;
   falling;
   block;
@@ -11,6 +12,14 @@ export class Board {
     this.height = height;
     this.tickCount = 0;
     this.falling = false;
+    let boardMatrix = [];
+    for (let i = 0; i < height; i++) {
+      boardMatrix.push([]);
+      for (let j = 0; j < width; j++) {
+        boardMatrix[i].push(".");
+      }
+    }
+    console.log(boardMatrix);
     this.board =
       `...
       ...
