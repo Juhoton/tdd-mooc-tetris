@@ -9,13 +9,11 @@ export class RotatingShape {
 
   static fromString(givenString) {
     let s = RotatingShape.removeEmptyFromString(givenString);
-    let sPos = 0;
     let matrix = [];
-    for (let row = 0; row < Math.sqrt(s.length); row++) {
+    for (let row = 0, stringPos = 0; row < Math.sqrt(s.length); row++) {
       matrix.push([]);
-      for (let pos = 0; pos < Math.sqrt(s.length); pos++) {
-        matrix[row][pos] = s[sPos];
-        sPos++;
+      for (let pos = 0; pos < Math.sqrt(s.length); pos++, stringPos++) {
+        matrix[row][pos] = s[stringPos];
       }
     }
     return new RotatingShape(matrix);
