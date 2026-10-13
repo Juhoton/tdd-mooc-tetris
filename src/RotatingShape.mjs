@@ -44,11 +44,15 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    let matrix = [
-      [this.shapeMatrix[0][2], this.shapeMatrix[1][2], this.shapeMatrix[2][2]],
-      [this.shapeMatrix[0][1], this.shapeMatrix[1][1], this.shapeMatrix[2][1]],
-      [this.shapeMatrix[0][0], this.shapeMatrix[1][0], this.shapeMatrix[2][0]]
-    ];
+    let matrix = [];
+    let revRow = this.shapeMatrix.length - 1;
+    for (let row = 0; row < this.shapeMatrix.length; row++) {
+      matrix.push([]);
+      for (let pos = 0; pos < this.shapeMatrix.length; pos++) {
+        matrix[row][pos] = this.shapeMatrix[pos][revRow];
+      }
+      revRow--;
+    }
     return new RotatingShape(matrix);
   }
 
