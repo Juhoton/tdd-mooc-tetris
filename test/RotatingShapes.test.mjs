@@ -34,7 +34,6 @@ describe("Rotating 3x3 shape", () => {
   });
 });
 
-/*
 describe("Rotating 5x5 shape", () => {
   const shape = RotatingShape.fromString(
     `ABCDE
@@ -44,7 +43,7 @@ describe("Rotating 5x5 shape", () => {
      UVWXY`
   );
 
-  test("initial orientation", () => {
+  test.skip("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
       `ABCDE
        FGHIJ
@@ -74,4 +73,3 @@ describe("Rotating 5x5 shape", () => {
     );
   });
 });
-*/
