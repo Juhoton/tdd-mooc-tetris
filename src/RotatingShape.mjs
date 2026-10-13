@@ -8,9 +8,9 @@ export class RotatingShape {
   }
 
   static fromString(givenString) {
-    let s = givenString.replaceAll(" ", "").replaceAll("\n", "");
-    let matrix = [];
+    let s = RotatingShape.removeEmptyFromString(givenString);
     let sPos = 0;
+    let matrix = [];
     for (let row = 0; row < Math.sqrt(s.length); row++) {
       matrix.push([]);
       for (let pos = 0; pos < Math.sqrt(s.length); pos++) {
@@ -19,6 +19,10 @@ export class RotatingShape {
       }
     }
     return new RotatingShape(matrix);
+  }
+
+  static removeEmptyFromString(s) {
+    return s.replaceAll(" ", "").replaceAll("\n", "");
   }
 
   toString() {
