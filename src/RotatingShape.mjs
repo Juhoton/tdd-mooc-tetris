@@ -1,4 +1,4 @@
-import { each } from "lodash";
+import { each, forEach } from "lodash";
 
 export class RotatingShape {
   shapeMatrix;
@@ -54,5 +54,12 @@ export class RotatingShape {
       }
     }
     return new RotatingShape(matrix);
+  }
+
+  checkIfFirstRowEmpty(matrix) {
+    matrix[0].forEach((square) => {
+      if (square !== '.') return false;
+    })
+    return true;
   }
 }
