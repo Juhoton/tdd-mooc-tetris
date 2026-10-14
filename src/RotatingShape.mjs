@@ -1,5 +1,3 @@
-import { each, forEach } from "lodash";
-
 export class RotatingShape {
   shapeMatrix;
 
@@ -53,13 +51,18 @@ export class RotatingShape {
         matrix[row][pos] = this.shapeMatrix[pos][revRow];
       }
     }
+    if (this.checkIfFirstRowEmpty(matrix)) {
+      matrix.push(matrix[0]);
+      matrix = matrix.slice(1);
+    }
     return new RotatingShape(matrix);
   }
 
   checkIfFirstRowEmpty(matrix) {
+    let bool = true;
     matrix[0].forEach((square) => {
-      if (square !== '.') return false;
-    })
-    return true;
+      if (square !== ".") bool = false;
+    });
+    return bool;
   }
 }
