@@ -22,8 +22,9 @@ export class RotatingShape {
   }
 
   toString() {
+    let tempMatrix = this.moveFirstRowToLastIfEmpty(this.shapeMatrix);
     let s = "";
-    this.shapeMatrix.forEach((list) => {
+    tempMatrix.forEach((list) => {
       list.forEach((square) => (s = s.concat(square)));
       s = s.concat("\n");
     });
@@ -51,11 +52,16 @@ export class RotatingShape {
         matrix[row][pos] = this.shapeMatrix[pos][revRow];
       }
     }
+    return new RotatingShape(matrix);
+  }
+
+  moveFirstRowToLastIfEmpty(matrix) {
     if (this.checkIfFirstRowEmpty(matrix)) {
+      matrix = matrix.slice();
       matrix.push(matrix[0]);
       matrix = matrix.slice(1);
     }
-    return new RotatingShape(matrix);
+    return matrix;
   }
 
   checkIfFirstRowEmpty(matrix) {
