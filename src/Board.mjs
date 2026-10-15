@@ -81,6 +81,7 @@ export class Board {
   normalize(s) {
     return s.replaceAll(" ", "").trim() + "\n";
   } // prob wrong location, copied from tests
+
   convertStringtoMatrix() {
     let s = RotatingShape.removeEmptyFromString(givenString);
     let matrix = [];
@@ -90,5 +91,6 @@ export class Board {
         matrix[row][pos] = s[stringPos];
       }
     }
-    return new RotatingShape(matrix, orientations);}
+    return new RotatingShape(matrix, orientations);
+  }
 }
