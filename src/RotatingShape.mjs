@@ -51,7 +51,12 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    if (this.orientationCount === 2) return this.rotateRight();
+    if (this.orientationCount === 2 && this.currentOrientation === 1) {
+      this.currentOrientation++;
+      return this.rotateRight();
+    } else {
+      this.currentOrientation--;
+    }
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0, revRow = mLen - 1; row < mLen; row++, revRow--) {
