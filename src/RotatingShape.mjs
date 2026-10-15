@@ -75,13 +75,4 @@ export class RotatingShape {
     }
     return matrix;
   }
-
-  checkIfRowEmpty(matrix, row) {
-    let bool = true;
-    matrix[row].forEach((square) => {
-      if (square !== ".") bool = false;
-    });
-    return bool;
-  }
-
 }
