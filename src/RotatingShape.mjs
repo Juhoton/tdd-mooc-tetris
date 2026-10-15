@@ -84,6 +84,16 @@ export class RotatingShape {
     return bool;
   }
 
+  moveFirstColumnToLastIfEmpty(matrix) {
+    if (this.checkIfColumnEmpty(matrix, 0)) {
+      matrix.forEach((row) => {
+        row.push(row[0]);
+        row = row.slice(1);
+      });
+    }
+    return matrix;
+  }
+
   checkIfColumnEmpty(matrix, column) {
     let bool = true;
     matrix.forEach((row) => {
