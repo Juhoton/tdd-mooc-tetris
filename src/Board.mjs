@@ -6,6 +6,7 @@ export class Board {
   tickCount;
   falling;
   block;
+  refactored;
 
   constructor(width, height) {
     this.width = width;
@@ -13,6 +14,7 @@ export class Board {
     this.tickCount = 0;
     this.falling = false;
     this.boardMatrix = [];
+    this.refactored = false;
     for (let i = 0; i < height; i++) {
       this.boardMatrix.push([]);
       for (let j = 0; j < width; j++) {
@@ -26,7 +28,14 @@ export class Board {
   }
 
   toString() {
-    return this.normalize(this.board);
+    if (!this.refactored) return this.normalize(this.board);
+    let tempMatrix = this.boardMatrix.slice();
+    let s = "";
+    tempMatrix.forEach((list) => {
+      list.forEach((square) => (s = s.concat(square)));
+      s = s.concat("\n");
+    });
+    return s;
   }
 
   drop(block) {
