@@ -23,10 +23,6 @@ export class Board {
         this.boardMatrix[row].push(".");
       }
     }
-    this.board =
-      `...
-      ...
-      ...`; // wtf is this string board
   }
 
   toString() {
