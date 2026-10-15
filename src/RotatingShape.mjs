@@ -73,14 +73,6 @@ export class RotatingShape {
     return bool;
   }
 
-  checkIfColumnEmpty(matrix, column) {
-    let bool = true;
-    matrix.forEach((row) => {
-      if (row[column] !== ".") bool = false;
-    });
-    return bool;
-  }
-
   checkIfEqualEmptyRows(matrix) {
     let bool = false;
     let count = 0;
@@ -89,6 +81,14 @@ export class RotatingShape {
     }
     if (count % 2 === 0) bool = true;
     console.log("equal rows: ", bool);
+    return bool;
+  }
+
+  checkIfColumnEmpty(matrix, column) {
+    let bool = true;
+    matrix.forEach((row) => {
+      if (row[column] !== ".") bool = false;
+    });
     return bool;
   }
 }
