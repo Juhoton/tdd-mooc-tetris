@@ -56,7 +56,7 @@ export class RotatingShape {
   }
 
   moveFirstRowToLastIfEmpty(matrix) {
-    if (this.checkIfFirstRowEmpty(matrix)) {
+    if (this.checkIfRowEmpty(matrix, 0)) {
       matrix = matrix.slice();
       matrix.push(matrix[0]);
       matrix = matrix.slice(1);
@@ -64,11 +64,18 @@ export class RotatingShape {
     return matrix;
   }
 
-  checkIfFirstRowEmpty(matrix) {
+  checkIfRowEmpty(matrix, row) {
     let bool = true;
-    matrix[0].forEach((square) => {
+    matrix[row].forEach((square) => {
       if (square !== ".") bool = false;
     });
     return bool;
+  }
+
+  checkIfEqualEmptyRows(matrix) {
+    let count = 0;
+    for (let row = 0; row < matrix.length; row++) {
+      if (this.checkIfRowEmpty(matrix, row)) count++;
+    }
   }
 }
