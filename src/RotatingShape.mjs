@@ -1,11 +1,13 @@
 export class RotatingShape {
   shapeMatrix;
+  orientations;
 
-  constructor(s) {
+  constructor(s, o) {
     this.shapeMatrix = s;
+    this.orientations = o;
   }
 
-  static fromString(givenString) {
+  static fromString(givenString, orientations) {
     let s = RotatingShape.removeEmptyFromString(givenString);
     let matrix = [];
     for (let row = 0, stringPos = 0; row < Math.sqrt(s.length); row++) {
@@ -14,7 +16,7 @@ export class RotatingShape {
         matrix[row][pos] = s[stringPos];
       }
     }
-    return new RotatingShape(matrix);
+    return new RotatingShape(matrix, orientations);
   }
 
   static removeEmptyFromString(s) {
@@ -24,6 +26,7 @@ export class RotatingShape {
   toString() {
     let tempMatrix = this.shapeMatrix.slice();
     if (!this.checkIfEqualEmptyRows(tempMatrix)) tempMatrix = this.moveFirstRowToLastIfEmpty(tempMatrix);
+    if (!this.checkIfEqualEmptyColumns(tempMatrix)) tempMatrix = this.moveFirstColumnToLastIfEmpty(tempMatrix);
     console.log("tempMatrix: ", tempMatrix);
     let s = "";
     tempMatrix.forEach((list) => {
@@ -46,6 +49,7 @@ export class RotatingShape {
   }
 
   rotateLeft() {
+    if (this.orientations === 2) return this.rotateLeft();
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0, revRow = mLen - 1; row < mLen; row++, revRow--) {
@@ -80,7 +84,7 @@ export class RotatingShape {
       if (this.checkIfRowEmpty(matrix, row)) count++;
     }
     if (count % 2 === 0) bool = true;
-    console.log("equal rows: ", bool);
+    console.log("equal rows: ", bool, count % 2);
     return bool;
   }
 
@@ -109,6 +113,7 @@ export class RotatingShape {
       if (this.checkIfColumnEmpty(matrix, col)) count++;
     }
     if (count % 2 === 0) bool = true;
+    console.log("equal col: ", bool, count % 2);
     return bool;
   }
 }
