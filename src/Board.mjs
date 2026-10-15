@@ -80,10 +80,6 @@ export class Board {
     return this.falling
   }
 
-  normalize(s) {
-    return s.replaceAll(" ", "").trim() + "\n";
-  } // prob wrong location, copied from tests
-
   convertStringtoMatrix(givenString) {
     let s = this.removeEmptyFromString(givenString);
     let matrix = [];
