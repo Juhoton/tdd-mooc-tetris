@@ -67,12 +67,4 @@ export class RotatingShape {
     }
     return new RotatingShape(matrix, this.orientationCount, this.currentOrientation - 1);
   }
-
-  moveFirstRowToLastIfEmpty(matrix) {
-    if (this.checkIfRowEmpty(matrix, 0)) {
-      matrix.push(matrix[0]);
-      matrix = matrix.slice(1);
-    }
-    return matrix;
-  }
 }
