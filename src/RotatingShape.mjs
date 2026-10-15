@@ -3,10 +3,12 @@ export class RotatingShape {
   orientationCount;
   currentOrientation;
 
-  constructor(s, o) {
+  constructor(s, o, c) {
     this.shapeMatrix = s;
     this.orientationCount = o;
-    this.currentOrientation = 1;
+    console.log("New block c : ", c);
+    this.currentOrientation = c || 1;
+    console.log("Init Orientation: ", this.currentOrientation);
   }
 
   static fromString(givenString, orientations) {
@@ -29,7 +31,7 @@ export class RotatingShape {
     let tempMatrix = this.shapeMatrix.slice();
     // if (!this.checkIfEqualEmptyRows(tempMatrix)) tempMatrix = this.moveFirstRowToLastIfEmpty(tempMatrix);
     // if (!this.checkIfEqualEmptyColumns(tempMatrix)) tempMatrix = this.moveFirstColumnToLastIfEmpty(tempMatrix);
-    console.log("tempMatrix: ", tempMatrix);
+    // console.log("tempMatrix: ", tempMatrix);
     let s = "";
     tempMatrix.forEach((list) => {
       list.forEach((square) => (s = s.concat(square)));
@@ -39,6 +41,9 @@ export class RotatingShape {
   }
 
   rotateRight() {
+    if (this.orientationCount === 2 && this.currentOrientation === 2) {
+      return this.rotateLeft();
+    }
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0; row < mLen; row++) {
@@ -47,15 +52,12 @@ export class RotatingShape {
         matrix[row][pos] = this.shapeMatrix[revPos][row];
       }
     }
-    return new RotatingShape(matrix);
+    return new RotatingShape(matrix, this.orientationCount, this.currentOrientation + 1);
   }
 
   rotateLeft() {
     if (this.orientationCount === 2 && this.currentOrientation === 1) {
-      this.currentOrientation++;
       return this.rotateRight();
-    } else {
-      this.currentOrientation--;
     }
     let matrix = [];
     let mLen = this.shapeMatrix.length;
@@ -65,7 +67,7 @@ export class RotatingShape {
         matrix[row][pos] = this.shapeMatrix[pos][revRow];
       }
     }
-    return new RotatingShape(matrix);
+    return new RotatingShape(matrix, this.orientationCount, this.currentOrientation - 1);
   }
 
   /*
