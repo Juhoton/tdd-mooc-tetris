@@ -8,14 +8,12 @@ export class Board {
   tickCount;
   falling;
   activeBlock;
-  refactored;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.tickCount = 0;
     this.falling = false;
-    this.refactored = false;
     this.boardMatrix = this.createMatrixBoard(height, width);
   }
 
