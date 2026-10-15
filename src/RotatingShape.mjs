@@ -84,14 +84,4 @@ export class RotatingShape {
     return bool;
   }
 
-  checkIfEqualEmptyRows(matrix) {
-    let bool = false;
-    let count = 0;
-    for (let row = 0; row < matrix.length; row++) {
-      if (this.checkIfRowEmpty(matrix, row)) count++;
-    }
-    if (count % 2 === 0) bool = true;
-    console.log("equal rows: ", bool, count % 2);
-    return bool;
-  }
 }
