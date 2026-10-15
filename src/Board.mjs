@@ -15,14 +15,19 @@ export class Board {
     this.height = height;
     this.tickCount = 0;
     this.falling = false;
-    this.boardMatrix = [];
     this.refactored = false;
+    this.boardMatrix = this.createMatrixBoard(height, width);
+  }
+
+  createMatrixBoard(height, width) {
+    let matrix = [];
     for (let row = 0; row < height; row++) {
-      this.boardMatrix.push([]);
+      matrix.push([]);
       for (let col = 0; col < width; col++) {
-        this.boardMatrix[row].push(".");
+        matrix[row].push(".");
       }
     }
+    return matrix;
   }
 
   toString() {
