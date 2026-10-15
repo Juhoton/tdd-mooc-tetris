@@ -104,13 +104,4 @@ export class RotatingShape {
     }
     return matrix;
   }
-
-  checkIfColumnEmpty(matrix, column) {
-    let bool = true;
-    matrix.forEach((row) => {
-      if (row[column] !== ".") bool = false;
-    });
-    return bool;
-  }
-
 }
