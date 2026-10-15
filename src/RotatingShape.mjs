@@ -1,10 +1,12 @@
 export class RotatingShape {
   shapeMatrix;
-  orientations;
+  orientationCount;
+  currentOrientation;
 
   constructor(s, o) {
     this.shapeMatrix = s;
-    this.orientations = o;
+    this.orientationCount = o;
+    this.currentOrientation = 1;
   }
 
   static fromString(givenString, orientations) {
@@ -25,8 +27,8 @@ export class RotatingShape {
 
   toString() {
     let tempMatrix = this.shapeMatrix.slice();
-    if (!this.checkIfEqualEmptyRows(tempMatrix)) tempMatrix = this.moveFirstRowToLastIfEmpty(tempMatrix);
-    if (!this.checkIfEqualEmptyColumns(tempMatrix)) tempMatrix = this.moveFirstColumnToLastIfEmpty(tempMatrix);
+    // if (!this.checkIfEqualEmptyRows(tempMatrix)) tempMatrix = this.moveFirstRowToLastIfEmpty(tempMatrix);
+    // if (!this.checkIfEqualEmptyColumns(tempMatrix)) tempMatrix = this.moveFirstColumnToLastIfEmpty(tempMatrix);
     console.log("tempMatrix: ", tempMatrix);
     let s = "";
     tempMatrix.forEach((list) => {
@@ -49,7 +51,7 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    if (this.orientations === 2) return this.rotateLeft();
+    if (this.orientationCount === 2) return this.rotateRight();
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0, revRow = mLen - 1; row < mLen; row++, revRow--) {
@@ -61,6 +63,7 @@ export class RotatingShape {
     return new RotatingShape(matrix);
   }
 
+  /*
   moveFirstRowToLastIfEmpty(matrix) {
     if (this.checkIfRowEmpty(matrix, 0)) {
       matrix.push(matrix[0]);
@@ -116,4 +119,5 @@ export class RotatingShape {
     console.log("equal col: ", bool, count % 2);
     return bool;
   }
+  */
 }
