@@ -15,10 +15,10 @@ export class Board {
     this.falling = false;
     this.boardMatrix = [];
     this.refactored = false;
-    for (let i = 0; i < height; i++) {
+    for (let row = 0; row < height; row++) {
       this.boardMatrix.push([]);
-      for (let j = 0; j < width; j++) {
-        this.boardMatrix[i].push(".");
+      for (let col = 0; col < width; col++) {
+        this.boardMatrix[row].push(".");
       }
     }
     this.board =
