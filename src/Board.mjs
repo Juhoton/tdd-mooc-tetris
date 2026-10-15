@@ -28,8 +28,7 @@ export class Board {
   }
 
   toString() {
-    if (!this.refactored) return this.normalize(this.board);
-    let tempMatrix = this.boardMatrix.slice();
+    let tempMatrix = this.convertStringtoMatrix(this.board);
     let s = "";
     tempMatrix.forEach((list) => {
       list.forEach((square) => (s = s.concat(square)));
@@ -96,5 +95,14 @@ export class Board {
 
   removeEmptyFromString(s) {
     return s.replaceAll(" ", "").replaceAll("\n", "");
+  }
+
+  convertMatrixToString(matrix) {
+    let s = "";
+    matrix.forEach((list) => {
+      list.forEach((square) => (s = s.concat(square)));
+      s = s.concat("\n");
+    });
+    return s;
   }
 }
