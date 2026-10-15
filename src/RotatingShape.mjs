@@ -36,8 +36,8 @@ export class RotatingShape {
   }
 
   rotateRight() {
+    if (!this.checkIfCanRotate()) return this;
     if (this.orientationCount === 2 && this.currentOrientation === 2) return this.rotateLeft();
-    if (this.orientationCount === 1) return this;
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0; row < mLen; row++) {
@@ -50,8 +50,8 @@ export class RotatingShape {
   }
 
   rotateLeft() {
+    if (!this.checkIfCanRotate()) return this;
     if (this.orientationCount === 2 && this.currentOrientation === 1) return this.rotateRight();
-    if (this.orientationCount === 1) return this;
     let matrix = [];
     let mLen = this.shapeMatrix.length;
     for (let row = 0, revRow = mLen - 1; row < mLen; row++, revRow--) {
@@ -61,5 +61,9 @@ export class RotatingShape {
       }
     }
     return new RotatingShape(matrix, this.orientationCount, this.currentOrientation - 1);
+  }
+
+  checkIfCanRotate() {
+    return this.orientationCount !== 1;
   }
 }
