@@ -82,8 +82,8 @@ export class Board {
     return s.replaceAll(" ", "").trim() + "\n";
   } // prob wrong location, copied from tests
 
-  convertStringtoMatrix() {
-    let s = RotatingShape.removeEmptyFromString(givenString);
+  convertStringtoMatrix(givenString) {
+    let s = this.removeEmptyFromString(givenString);
     let matrix = [];
     for (let row = 0, stringPos = 0; row < Math.sqrt(s.length); row++) {
       matrix.push([]);
@@ -91,7 +91,7 @@ export class Board {
         matrix[row][pos] = s[stringPos];
       }
     }
-    return new RotatingShape(matrix, orientations);
+    return matrix;
   }
 
   removeEmptyFromString(s) {
