@@ -1,3 +1,5 @@
+import { RotatingShape } from "./RotatingShape.mjs";
+
 export class Board {
   width;
   height;
@@ -5,7 +7,7 @@ export class Board {
   boardMatrix;
   tickCount;
   falling;
-  block;
+  activeBlock;
   refactored;
 
   constructor(width, height) {
@@ -34,7 +36,11 @@ export class Board {
   drop(block) {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
-    this.block = block;
+    if (typeof block === "string") {
+      this.activeBlock = new RotatingShape(block);
+    } else {
+      this.activeBlock = block;
+    }
     this.board =
       `.X.
       ...
@@ -66,7 +72,7 @@ export class Board {
   }
 
   hasFalling() {
-    if (this.tickCount === 3 || this.tickCount === 5 || this.tickCount === 0  && !this.block) {
+    if (this.tickCount === 3 || this.tickCount === 5 || this.tickCount === 0  && !this.activeBlock) {
       this.falling = false;
     } else {
       this.falling = true;
