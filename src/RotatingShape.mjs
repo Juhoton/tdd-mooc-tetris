@@ -101,4 +101,14 @@ export class RotatingShape {
     });
     return bool;
   }
+
+  checkIfEqualEmptyColumns(matrix) {
+    let bool = false;
+    let count = 0;
+    for (let col = 0; col < matrix.length; col++) {
+      if (this.checkIfColumnEmpty(matrix, col)) count++;
+    }
+    if (count % 2 === 0) bool = true;
+    return bool;
+  }
 }
