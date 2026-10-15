@@ -93,4 +93,8 @@ export class Board {
     }
     return new RotatingShape(matrix, orientations);
   }
+
+  removeEmptyFromString(s) {
+    return s.replaceAll(" ", "").replaceAll("\n", "");
+  }
 }
