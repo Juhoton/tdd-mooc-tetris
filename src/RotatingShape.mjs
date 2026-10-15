@@ -41,9 +41,7 @@ export class RotatingShape {
   }
 
   rotateRight() {
-    if (this.orientationCount === 2 && this.currentOrientation === 2) {
-      return this.rotateLeft();
-    }
+    if (this.orientationCount === 2 && this.currentOrientation === 2) return this.rotateLeft();
     if (this.orientationCount === 1) return this;
     let matrix = [];
     let mLen = this.shapeMatrix.length;
@@ -57,9 +55,7 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    if (this.orientationCount === 2 && this.currentOrientation === 1) {
-      return this.rotateRight();
-    }
+    if (this.orientationCount === 2 && this.currentOrientation === 1) return this.rotateRight();
     if (this.orientationCount === 1) return this;
     let matrix = [];
     let mLen = this.shapeMatrix.length;
@@ -72,7 +68,6 @@ export class RotatingShape {
     return new RotatingShape(matrix, this.orientationCount, this.currentOrientation - 1);
   }
 
-  /*
   moveFirstRowToLastIfEmpty(matrix) {
     if (this.checkIfRowEmpty(matrix, 0)) {
       matrix.push(matrix[0]);
@@ -128,5 +123,4 @@ export class RotatingShape {
     console.log("equal col: ", bool, count % 2);
     return bool;
   }
-  */
 }
