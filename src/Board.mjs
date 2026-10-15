@@ -28,13 +28,7 @@ export class Board {
   }
 
   toString() {
-    let tempMatrix = this.convertStringtoMatrix(this.board);
-    let s = "";
-    tempMatrix.forEach((list) => {
-      list.forEach((square) => (s = s.concat(square)));
-      s = s.concat("\n");
-    });
-    return s;
+    return this.convertMatrixToString(this.boardMatrix);
   }
 
   drop(block) {
@@ -45,6 +39,7 @@ export class Board {
       `.X.
       ...
       ...`;
+    this.tempConvert();
   }
 
   tick() {
@@ -53,16 +48,19 @@ export class Board {
         `...
         .X.
         ...`;
+      this.tempConvert();
     } else if (this.tickCount >= 3) {
       this.board =
         `...
         .Y.
         .X.`;
+      this.tempConvert();
     } else {
       this.board =
         `...
         ...
         .X.`;
+      this.tempConvert();
     }
     this.tickCount++
   }
@@ -104,5 +102,9 @@ export class Board {
       s = s.concat("\n");
     });
     return s;
+  }
+
+  tempConvert() {
+    this.boardMatrix = this.convertStringtoMatrix(this.board)
   }
 }
