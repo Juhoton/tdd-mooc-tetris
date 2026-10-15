@@ -6,9 +6,7 @@ export class RotatingShape {
   constructor(s, o, c) {
     this.shapeMatrix = s;
     this.orientationCount = o;
-    console.log("New block c : ", c);
     this.currentOrientation = c || 1;
-    console.log("Init Orientation: ", this.currentOrientation);
   }
 
   static fromString(givenString, orientations) {
@@ -29,9 +27,6 @@ export class RotatingShape {
 
   toString() {
     let tempMatrix = this.shapeMatrix.slice();
-    // if (!this.checkIfEqualEmptyRows(tempMatrix)) tempMatrix = this.moveFirstRowToLastIfEmpty(tempMatrix);
-    // if (!this.checkIfEqualEmptyColumns(tempMatrix)) tempMatrix = this.moveFirstColumnToLastIfEmpty(tempMatrix);
-    // console.log("tempMatrix: ", tempMatrix);
     let s = "";
     tempMatrix.forEach((list) => {
       list.forEach((square) => (s = s.concat(square)));

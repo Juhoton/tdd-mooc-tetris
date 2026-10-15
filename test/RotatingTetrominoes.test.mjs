@@ -7,12 +7,10 @@ function distinctOrientations(shape) {
   let goingRight = shape;
   let goingLeft = shape;
   for (let i = 0; i < 10; i++) {
-    console.log("Goingright: ", goingRight, "\n goingleft: ", goingLeft);
     distinct.add(goingRight.toString());
     goingRight = goingRight.rotateRight();
     distinct.add(goingLeft.toString());
     goingLeft = goingLeft.rotateLeft();
-    console.log("Set size:", distinct.size);
   }
   return distinct;
 }
