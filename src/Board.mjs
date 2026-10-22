@@ -79,21 +79,20 @@ export class Board {
     this.activeBlockPosition++;
     if (this.activeBlockPosition < this.height) {
       this.removeActiveBlock();
-      console.log(this.activeBlockPosition);
       this.addActiveBlock();
       }
     this.tick2();
   }
 
   removeActiveBlock() {
-    let i = this.activeBlockPosition - 1;
-    this.activeBlock.shapeMatrix.forEach((row) => {
-      let j = Math.floor((this.width - row.length) / 2);
-      row.forEach((square) => {
-        this.boardMatrix[i][j] = ".";
-        j++;
+    let boardRow = this.activeBlockPosition - 1;
+    this.activeBlock.shapeMatrix.forEach((blockRow) => {
+      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
+      blockRow.forEach((blockSquare) => {
+        this.boardMatrix[boardRow][boardSquare] = ".";
+        boardSquare++;
       });
-      i++;
+      boardRow++;
     });
   }
 
