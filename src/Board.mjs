@@ -78,6 +78,7 @@ export class Board {
   tick() {
     let i = this.activeBlockPosition++;
     if (this.activeBlockPosition < this.height) {
+      this.removeActiveBlock();
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
@@ -98,6 +99,10 @@ export class Board {
     });
       }
     this.tick2();
+  }
+
+  removeActiveBlock() {
+
   }
 
   hasFalling() {
