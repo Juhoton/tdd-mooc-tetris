@@ -8,6 +8,7 @@ export class Board {
   tickCount;
   falling;
   activeBlock;
+  activeBlockPosition;
 
   constructor(width, height) {
     this.width = width;
@@ -49,6 +50,7 @@ export class Board {
       });
       i++;
     });
+    this.activeBlockPosition = 0;
   }
 
   tick2() {
