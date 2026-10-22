@@ -59,7 +59,7 @@ export class Board {
     if (this.activeBlockPosition >= this.height) {
       bool = false;
       this.falling = bool;
-      return bool;;
+      return bool;
     }
     let boardRow = this.activeBlockPosition;
     this.boardMatrix[boardRow].forEach((square) => {
