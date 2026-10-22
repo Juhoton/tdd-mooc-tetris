@@ -1,3 +1,4 @@
+import { forEach } from "lodash";
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Board {
@@ -36,15 +37,18 @@ export class Board {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
     if (typeof block === "string") {
-      this.activeBlock = new RotatingShape(block);
+      this.activeBlock = RotatingShape.fromString(block);
     } else {
       this.activeBlock = block;
     } // maybe separate function
-    this.board =
-      `.X.
-      ...
-      ...`;
-    this.tempConvert();
+    let i = 0;
+    this.activeBlock.shapeMatrix.forEach((row) => {
+      let j = 1;
+      row.forEach((square) => {
+        this.boardMatrix[i][j] = square;
+        j++;
+      });
+    });
   }
 
   tick() {
