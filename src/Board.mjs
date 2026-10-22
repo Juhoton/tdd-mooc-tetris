@@ -59,10 +59,15 @@ export class Board {
   tick() {
     this.activeBlockPosition++;
     if (this.activeBlockPosition < this.height) {
+      this.checkIfNextRowEmpty();
       this.removeActiveBlock();
       this.addActiveBlock(this.activeBlockPosition);
       }
     this.tick2();
+  }
+
+  checkIfNextRowEmpty() {
+
   }
 
   removeActiveBlock() {
