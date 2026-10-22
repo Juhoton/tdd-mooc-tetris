@@ -57,12 +57,6 @@ export class Board {
         .Y.
         .X.`;
       this.tempConvert();
-    } else {
-      this.board =
-        `...
-        ...
-        .X.`;
-      this.tempConvert();
     }
     this.tickCount++
   }
