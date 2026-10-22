@@ -45,17 +45,13 @@ export class Board {
     this.addActiveBlock(this.activeBlockPosition);
   }
 
-  tick2() {
-    this.tickCount++
-  }
-
   tick() {
     this.activeBlockPosition++;
     if (this.checkIfNextRowEmpty()) {
       this.removeActiveBlock();
       this.addActiveBlock(this.activeBlockPosition);
       }
-    this.tick2();
+    this.tickCount++;
   }
 
   checkIfNextRowEmpty() {
