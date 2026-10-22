@@ -76,9 +76,17 @@ export class Board {
   }
 
   tick() {
-    let i = this.activeBlockPosition++;
+    this.activeBlockPosition++;
     if (this.activeBlockPosition < this.height) {
       this.removeActiveBlock();
+      console.log(this.activeBlockPosition);
+      this.addActiveBlock();
+      }
+    this.tick2();
+  }
+
+  removeActiveBlock() {
+    let i = this.activeBlockPosition - 1;
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
@@ -87,14 +95,6 @@ export class Board {
       });
       i++;
     });
-      console.log(this.activeBlockPosition);
-      this.addActiveBlock();
-      }
-    this.tick2();
-  }
-
-  removeActiveBlock() {
-
   }
 
   addActiveBlock() {
