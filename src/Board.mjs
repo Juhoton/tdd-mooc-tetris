@@ -88,14 +88,18 @@ export class Board {
     });
   }
 
-  hasFalling() {
+  hasFalling2() {
     if (this.tickCount === 3 || this.tickCount === 5 || this.tickCount === 0  && !this.activeBlock) {
       this.falling = false;
     } else {
       this.falling = true;
     } // Definitely bugged condition checking, that somehow passes tests
     // console.log("HasFalling: ", this.falling, this.tickCount, this.block);
-    return this.falling
+  }
+
+  hasFalling() {
+    this.hasFalling2();
+    return this.falling;
   }
 
   convertStringtoMatrix(givenString) {
