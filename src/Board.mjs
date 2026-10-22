@@ -39,7 +39,7 @@ export class Board {
       this.activeBlock = new RotatingShape(block);
     } else {
       this.activeBlock = block;
-    }
+    } // maybe separate function
     this.board =
       `.X.
       ...
