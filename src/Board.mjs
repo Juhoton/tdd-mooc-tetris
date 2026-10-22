@@ -43,7 +43,7 @@ export class Board {
     } // maybe separate function
     let i = 0;
     this.activeBlock.shapeMatrix.forEach((row) => {
-      let j = 1;
+      let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
         this.boardMatrix[i][j] = square;
         j++;
