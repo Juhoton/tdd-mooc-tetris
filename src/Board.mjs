@@ -56,11 +56,16 @@ export class Board {
 
   checkIfNextRowEmpty() {
     let bool = true;
-    if (this.activeBlockPosition >= this.height) return false;
+    if (this.activeBlockPosition >= this.height) {
+      bool = false;
+      this.falling = bool;
+      return bool;;
+    }
     let boardRow = this.activeBlockPosition;
     this.boardMatrix[boardRow].forEach((square) => {
       if (square !== ".") bool = false;
     });
+    this.falling = bool;
     return bool;
   }
 
@@ -98,7 +103,6 @@ export class Board {
   }
 
   hasFalling() {
-    this.hasFalling2();
     return this.falling;
   }
 
