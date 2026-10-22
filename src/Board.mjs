@@ -76,7 +76,8 @@ export class Board {
   }
 
   tick() {
-    let i = this.activeBlockPosition;
+    let i = this.activeBlockPosition++;
+    if (this.activeBlockPosition < this.height) {
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
@@ -85,7 +86,8 @@ export class Board {
       });
       i++;
     });
-    i = this.activeBlockPosition + 1;
+    console.log(this.activeBlockPosition);
+    i = this.activeBlockPosition;
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
@@ -94,6 +96,7 @@ export class Board {
       });
       i++;
     });
+      }
     this.tick2();
   }
 
