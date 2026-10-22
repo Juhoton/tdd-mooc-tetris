@@ -46,12 +46,7 @@ export class Board {
   }
 
   tick2() {
-    if (this.tickCount === 0) {
-      this.board =
-        `...
-        .X.
-        ...`;
-    } else if (this.tickCount >= 3) {
+    if (this.tickCount >= 3) {
       this.board =
         `...
         .Y.
