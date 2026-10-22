@@ -41,16 +41,8 @@ export class Board {
     } else {
       this.activeBlock = block;
     } // maybe separate function
-    let i = 0;
-    this.activeBlock.shapeMatrix.forEach((row) => {
-      let j = Math.floor((this.width - row.length) / 2);
-      row.forEach((square) => {
-        this.boardMatrix[i][j] = square;
-        j++;
-      });
-      i++;
-    });
     this.activeBlockPosition = 0;
+    this.addActiveBlock(this.activeBlockPosition);
   }
 
   tick2() {
