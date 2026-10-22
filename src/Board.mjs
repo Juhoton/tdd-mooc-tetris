@@ -51,14 +51,13 @@ export class Board {
         `...
         .Y.
         .X.`;
-      this.tempConvert();
     }
     this.tickCount++
   }
 
   tick() {
     this.activeBlockPosition++;
-    if (this.activeBlockPosition < this.height && this.checkIfNextRowEmpty()) {
+    if (this.checkIfNextRowEmpty()) {
       this.removeActiveBlock();
       this.addActiveBlock(this.activeBlockPosition);
       }
@@ -66,7 +65,13 @@ export class Board {
   }
 
   checkIfNextRowEmpty() {
-    return true;
+    let bool = true;
+    if (this.activeBlockPosition >= this.height) return false;
+    let boardRow = this.activeBlockPosition;
+    this.boardMatrix[boardRow].forEach((square) => {
+      if (square !== ".") bool = false;
+    });
+    return bool;
   }
 
   removeActiveBlock() {
