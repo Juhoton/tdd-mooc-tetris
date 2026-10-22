@@ -97,14 +97,14 @@ export class Board {
   }
 
   addActiveBlock() {
-    let i = this.activeBlockPosition;
-    this.activeBlock.shapeMatrix.forEach((row) => {
-      let j = Math.floor((this.width - row.length) / 2);
-      row.forEach((square) => {
-        this.boardMatrix[i][j] = square;
-        j++;
+    let boardRow = this.activeBlockPosition;
+    this.activeBlock.shapeMatrix.forEach((blockRow) => {
+      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
+      blockRow.forEach((blockSquare) => {
+        this.boardMatrix[boardRow][boardSquare] = blockSquare;
+        boardSquare++;
       });
-      i++;
+      boardRow++;
     });
   }
 
