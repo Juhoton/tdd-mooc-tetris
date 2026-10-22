@@ -59,7 +59,6 @@ export class Board {
         `...
         .X.
         ...`;
-      this.tempConvert();
     } else if (this.tickCount >= 3) {
       this.board =
         `...
@@ -86,7 +85,7 @@ export class Board {
       });
       i++;
     });
-    i = this.activeBlockPosition;
+    i = this.activeBlockPosition + 1;
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
       row.forEach((square) => {
