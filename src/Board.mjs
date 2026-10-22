@@ -87,7 +87,8 @@ export class Board {
       });
       i++;
     });
-    console.log(this.activeBlockPosition);
+      console.log(this.activeBlockPosition);
+      this.addActiveBlock();
     i = this.activeBlockPosition;
     this.activeBlock.shapeMatrix.forEach((row) => {
       let j = Math.floor((this.width - row.length) / 2);
@@ -102,6 +103,10 @@ export class Board {
   }
 
   removeActiveBlock() {
+
+  }
+
+  addActiveBlock() {
 
   }
 
