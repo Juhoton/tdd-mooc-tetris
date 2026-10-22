@@ -52,7 +52,7 @@ export class Board {
     });
   }
 
-  tick() {
+  tick2() {
     if (this.tickCount === 0) {
       this.board =
         `...
@@ -73,6 +73,10 @@ export class Board {
       this.tempConvert();
     }
     this.tickCount++
+  }
+
+  tick() {
+    this.tick2();
   }
 
   hasFalling() {
