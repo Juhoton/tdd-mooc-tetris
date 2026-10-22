@@ -48,6 +48,7 @@ export class Board {
         this.boardMatrix[i][j] = square;
         j++;
       });
+      i++;
     });
   }
 
