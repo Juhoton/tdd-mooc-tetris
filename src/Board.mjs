@@ -78,6 +78,15 @@ export class Board {
 
   tick() {
     this.tick2();
+    let i = this.activeBlockPosition;
+    this.activeBlock.shapeMatrix.forEach((row) => {
+      let j = Math.floor((this.width - row.length) / 2);
+      row.forEach((square) => {
+        this.boardMatrix[i][j] = ".";
+        j++;
+      });
+      i++;
+    });
   }
 
   hasFalling() {
