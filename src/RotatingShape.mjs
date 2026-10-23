@@ -78,4 +78,16 @@ export class RotatingShape {
   checkIfCannotRotate() {
     return this.orientationCount === 1;
   }
+
+  checkWidth() {
+    let finalWidth = 0;
+    this.shapeMatrix.forEach((row) => {
+      let tempWidth = 0;
+      row.forEach((square) => {
+        if (square !== ".") tempWidth++;
+      });
+      if (finalWidth < tempWidth) finalWidth = tempWidth;
+    });
+    this.width = finalWidth;
+  }
 }
