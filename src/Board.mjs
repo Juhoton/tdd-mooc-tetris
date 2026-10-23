@@ -62,7 +62,6 @@ export class Board {
   checkIfNextRowEmpty() {
     let bool = true;
     let nextRow = this.activeBlockPosition + this.activeBlock.getHeight();
-    console.log("nextRow: ",nextRow);
     if (nextRow >= this.height) {
       bool = false;
       this.falling = bool;
@@ -92,7 +91,6 @@ export class Board {
     block.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
-        console.log(boardRow, boardSquare, blockSquare, position);
         if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
         boardSquare++;
       });
