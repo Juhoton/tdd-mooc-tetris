@@ -76,7 +76,7 @@ export class Board {
 
   removeActiveBlock() {
     let boardRow = this.activeBlockPosition - 1;
-    this.activeBlock.shapeMatrix.forEach((blockRow) => {
+    this.activeBlock.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
         this.boardMatrix[boardRow][boardSquare] = ".";
@@ -88,7 +88,7 @@ export class Board {
 
   insertBlock(block, position) {
     let boardRow = position;
-    block.shapeMatrix.forEach((blockRow) => {
+    block.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
         console.log(boardRow, boardSquare, blockSquare);
