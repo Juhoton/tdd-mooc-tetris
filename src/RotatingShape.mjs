@@ -39,9 +39,9 @@ export class RotatingShape {
     return s;
   }
 
-  getWidth() {
-    return this.width;
-  }
+  getWidth() { return this.width; }
+  getHeight() { return this.height; }
+  getMatrix() { return this.shapeMatrix; }
 
   rotateRight() {
     if (this.checkIfCannotRotate()) return this;
