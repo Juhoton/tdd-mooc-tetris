@@ -38,7 +38,7 @@ export class Board {
     this.falling = true;
     this.setActiveBlock(block);
     this.activeBlockPosition = 0;
-    this.insertBlockIntoBoard(this.activeBlock, this.activeBlockPosition);
+    this.insertBlock(this.activeBlock, this.activeBlockPosition);
   }
 
   setActiveBlock(block) {
@@ -57,7 +57,7 @@ export class Board {
     this.activeBlockPosition++;
     if (this.checkIfNextRowEmpty()) {
       this.removeActiveBlock();
-      this.insertBlockIntoBoard(this.activeBlock, this.activeBlockPosition);
+      this.insertBlock(this.activeBlock, this.activeBlockPosition);
       }
     this.tickCount++;
   }
@@ -89,7 +89,7 @@ export class Board {
     });
   }
 
-  insertBlockIntoBoard(block, position) {
+  insertBlock(block, position) {
     let boardRow = position;
     block.shapeMatrix.forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
