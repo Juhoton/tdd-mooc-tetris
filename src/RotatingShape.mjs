@@ -9,8 +9,8 @@ export class RotatingShape {
     this.shapeMatrix = s;
     this.orientationCount = o;
     this.currentOrientation = c || 1;
-    this.width = s[0].length;
-    this.height = s.length;
+    this.checkWidth();
+    this.checkHeight();
   }
 
   static fromString(givenString, orientations) {
@@ -89,5 +89,17 @@ export class RotatingShape {
       if (finalWidth < tempWidth) finalWidth = tempWidth;
     });
     this.width = finalWidth;
+  }
+
+  checkHeight() {
+    let finalHeight = 0;
+    for (let x = 0; x < this.shapeMatrix[0].length; x++) {
+      let tempHeight = 0;
+      for (let y = 0; y < this.shapeMatrix.length; y++) {
+        if (this.shapeMatrix[y][x] !== ".") tempHeight++;
+      }
+      if (finalHeight < tempHeight) finalHeight = tempHeight;
+    }
+    this.width = finalHeight;
   }
 }
