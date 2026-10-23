@@ -41,17 +41,17 @@ export class Board {
     this.insertBlockIntoBoard(this.activeBlock, this.activeBlockPosition);
   }
 
-    setActiveBlock(block) {
-        if (typeof block === "string") {
-            this.activeBlock = this.createNewBlockFromString(block);
-        } else {
-            this.activeBlock = block;
-        }
-    }
+  setActiveBlock(block) {
+      if (typeof block === "string") {
+          this.activeBlock = this.createNewBlockFromString(block);
+      } else {
+          this.activeBlock = block;
+      }
+  }
 
-    createNewBlockFromString(block) {
-        return RotatingShape.fromString(block);
-    }
+  createNewBlockFromString(block) {
+      return RotatingShape.fromString(block);
+  }
 
   tick() {
     this.activeBlockPosition++;
