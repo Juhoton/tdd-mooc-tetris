@@ -79,7 +79,7 @@ export class Board {
     this.activeBlock.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
-        this.boardMatrix[boardRow][boardSquare] = ".";
+        if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = ".";
         boardSquare++;
       });
       boardRow++;
