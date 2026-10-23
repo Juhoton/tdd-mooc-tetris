@@ -5,7 +5,6 @@ export class Board {
   height;
   board;
   boardMatrix;
-  tickCount;
   falling;
   activeBlock;
   activeBlockPosition;
@@ -13,7 +12,6 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.tickCount = 0;
     this.falling = false;
     this.boardMatrix = this.createMatrixBoard(height, width);
   }
@@ -59,7 +57,6 @@ export class Board {
       this.removeActiveBlock();
       this.insertBlock(this.activeBlock, this.activeBlockPosition);
       }
-    this.tickCount++;
   }
 
   checkIfNextRowEmpty() {
