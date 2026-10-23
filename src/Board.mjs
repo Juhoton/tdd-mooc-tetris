@@ -91,6 +91,7 @@ export class Board {
     block.shapeMatrix.forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
+        console.log(boardRow, boardSquare, blockSquare);
         this.boardMatrix[boardRow][boardSquare] = blockSquare;
         boardSquare++;
       });

@@ -2,11 +2,15 @@ export class RotatingShape {
   shapeMatrix;
   orientationCount;
   currentOrientation;
+  width;
+  height;
 
   constructor(s, o, c) {
     this.shapeMatrix = s;
     this.orientationCount = o;
     this.currentOrientation = c || 1;
+    this.width = s[0].length;
+    this.height = s.length;
   }
 
   static fromString(givenString, orientations) {
@@ -33,6 +37,10 @@ export class RotatingShape {
       s = s.concat("\n");
     });
     return s;
+  }
+
+  getWidth() {
+    return this.width;
   }
 
   rotateRight() {
