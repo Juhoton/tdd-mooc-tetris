@@ -100,6 +100,6 @@ export class RotatingShape {
       }
       if (finalHeight < tempHeight) finalHeight = tempHeight;
     }
-    this.width = finalHeight;
+    this.height = finalHeight;
   }
 }
