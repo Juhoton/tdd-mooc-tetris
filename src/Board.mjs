@@ -37,13 +37,17 @@ export class Board {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
     if (typeof block === "string") {
-      this.activeBlock = RotatingShape.fromString(block);
+      this.activeBlock = this.createNewBlockFromString(block);
     } else {
       this.activeBlock = block;
     } // maybe separate function
     this.activeBlockPosition = 0;
     this.addActiveBlock(this.activeBlockPosition);
   }
+
+    createNewBlockFromString(block) {
+        return RotatingShape.fromString(block);
+    }
 
   tick() {
     this.activeBlockPosition++;
