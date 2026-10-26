@@ -38,7 +38,7 @@ export class Board {
     this.setActiveBlock(block);
     this.activeBlockPositionX = Math.floor((this.width - block.length) / 2);
     this.activeBlockPositionY = 0;
-    this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
+    this.insertBlock2(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
 
   setActiveBlock(block) {
@@ -57,7 +57,7 @@ export class Board {
     if (this.checkIfNextRowEmpty()) {
       this.removeActiveBlock();
       this.activeBlockPositionY++;
-      this.insertBlock(this.activeBlock, this.activeBlockPositionY);
+      this.insertBlock2(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
       }
   }
 
@@ -89,7 +89,7 @@ export class Board {
   }
 
   // removeActiveBlock and insertBlock might be duplications, but currently it doesn't seem worth it to change it
-  insertBlock(block, positionY, positionX) {
+  insertBlock2(block, positionY, positionX) {
     let boardRow = positionY;
     block.getMatrix().forEach((blockRow) => {
       let boardSquare = positionX || Math.floor((this.width - blockRow.length) / 2);
@@ -100,6 +100,8 @@ export class Board {
       boardRow++;
     });
   }
+
+  insertBlock() {}
 
   moveActiveBlockLeft() {
     this.boardMatrix = [
