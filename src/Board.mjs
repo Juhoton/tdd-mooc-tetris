@@ -101,7 +101,17 @@ export class Board {
     });
   }
 
-  insertBlock() {}
+  insertBlock(block, positionY, positionX) {
+    let boardRow = positionY;
+    block.getMatrix().forEach((blockRow) => {
+      let boardSquare = positionX || Math.floor((this.width - blockRow.length) / 2);
+      blockRow.forEach((blockSquare) => {
+        if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
+        boardSquare++;
+      });
+      boardRow++;
+    });
+  }
 
   moveActiveBlockLeft() {
     this.boardMatrix = [
