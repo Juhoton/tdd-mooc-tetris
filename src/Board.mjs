@@ -88,19 +88,6 @@ export class Board {
     });
   }
 
-  // removeActiveBlock and insertBlock might be duplications, but currently it doesn't seem worth it to change it
-  insertBlock2(block, positionY, positionX) {
-    let boardRow = positionY;
-    block.getMatrix().forEach((blockRow) => {
-      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
-      blockRow.forEach((blockSquare) => {
-        if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
-        boardSquare++;
-      });
-      boardRow++;
-    });
-  }
-
   insertBlock(block, positionY, positionX) {
     let blockMatrix = block.getMatrix();
     for (let boardRow = positionY, blockRow = 0; blockRow < block.getMatrixHeight(); boardRow++, blockRow++) {
