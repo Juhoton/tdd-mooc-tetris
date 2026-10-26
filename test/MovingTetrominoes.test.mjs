@@ -35,4 +35,18 @@ describe("Moving tetrominoes", () => {
        ..........`
     );
   });
+
+  test("Can be moved down", () => {
+    board.moveActiveBlockDown();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ....T.....
+       ...TTT....
+       ..........
+       ..........
+       ..........`
+    );
+  })
+
 });

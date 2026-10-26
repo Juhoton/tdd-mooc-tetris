@@ -119,6 +119,10 @@ export class Board {
       [".", ".", ".", ".", ".", ".", ".", ".", ".", "."]]
   }
 
+  moveActiveBlockDown() {
+    this.tick();
+  }
+
   hasFalling() {
     return this.falling;
   }
