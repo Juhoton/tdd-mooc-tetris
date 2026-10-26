@@ -114,6 +114,12 @@ export class Board {
     this.tick();
   }
 
+  slamActiveBlockToBottom() {
+    while (this.falling) {
+      this.tick();
+    }
+  }
+
   hasFalling() {
     return this.falling;
   }
