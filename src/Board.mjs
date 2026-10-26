@@ -7,7 +7,8 @@ export class Board {
   boardMatrix;
   falling;
   activeBlock;
-  activeBlockPosition;
+  activeBlockPositionX;
+  activeBlockPositionY;
 
   constructor(width, height) {
     this.width = width;
@@ -35,8 +36,8 @@ export class Board {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
     this.setActiveBlock(block);
-    this.activeBlockPosition = 0;
-    this.insertBlock(this.activeBlock, this.activeBlockPosition);
+    this.activeBlockPositionY = 0;
+    this.insertBlock(this.activeBlock, this.activeBlockPositionY);
   }
 
   setActiveBlock(block) {
@@ -54,14 +55,14 @@ export class Board {
   tick() {
     if (this.checkIfNextRowEmpty()) {
       this.removeActiveBlock();
-      this.activeBlockPosition++;
-      this.insertBlock(this.activeBlock, this.activeBlockPosition);
+      this.activeBlockPositionY++;
+      this.insertBlock(this.activeBlock, this.activeBlockPositionY);
       }
   }
 
   checkIfNextRowEmpty() {
     let bool = true;
-    let nextRow = this.activeBlockPosition + this.activeBlock.getHeight();
+    let nextRow = this.activeBlockPositionY + this.activeBlock.getHeight();
     if (nextRow >= this.height) {
       bool = false;
       this.falling = bool;
@@ -75,7 +76,7 @@ export class Board {
   }
 
   removeActiveBlock() {
-    let boardRow = this.activeBlockPosition;
+    let boardRow = this.activeBlockPositionY;
     this.activeBlock.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
