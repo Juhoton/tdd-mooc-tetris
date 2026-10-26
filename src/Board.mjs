@@ -55,7 +55,7 @@ export class Board {
 
   tick() {
     if (this.checkIfNextRowEmpty()) {
-      this.removeActiveBlock();
+      this.removeActiveBlock2();
       this.activeBlockPositionY++;
       this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
       }
@@ -76,7 +76,7 @@ export class Board {
     return bool;
   }
 
-  removeActiveBlock() {
+  removeActiveBlock2() {
     let boardRow = this.activeBlockPositionY;
     this.activeBlock.getMatrix().forEach((blockRow) => {
       let boardSquare = Math.floor((this.width - blockRow.length) / 2);
@@ -86,6 +86,10 @@ export class Board {
       });
       boardRow++;
     });
+  }
+
+  removeActiveBlock() {
+
   }
 
   insertBlock(block, positionY, positionX) {
@@ -98,7 +102,7 @@ export class Board {
   }
 
   moveActiveBlockLeft() {
-    this.removeActiveBlock();
+    this.removeActiveBlock2();
     this.activeBlockPositionX--;
     this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
