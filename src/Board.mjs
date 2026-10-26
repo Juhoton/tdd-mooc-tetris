@@ -86,6 +86,7 @@ export class Board {
     });
   }
 
+  // removeActiveBlock and insertBlock might be duplications, but currently it doesn't seem worth it to change it
   insertBlock(block, position) {
     let boardRow = position;
     block.getMatrix().forEach((blockRow) => {
