@@ -76,18 +76,6 @@ export class Board {
     return bool;
   }
 
-  removeActiveBlock2() {
-    let boardRow = this.activeBlockPositionY;
-    this.activeBlock.getMatrix().forEach((blockRow) => {
-      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
-      blockRow.forEach((blockSquare) => {
-        if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = ".";
-        boardSquare++;
-      });
-      boardRow++;
-    });
-  }
-
   removeActiveBlock() {
     this.removeBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
@@ -111,7 +99,7 @@ export class Board {
   }
 
   moveActiveBlockLeft() {
-    this.removeActiveBlock2();
+    this.removeActiveBlock();
     this.activeBlockPositionX--;
     this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
