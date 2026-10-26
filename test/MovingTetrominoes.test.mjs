@@ -49,7 +49,7 @@ describe("Moving tetrominoes", () => {
     );
   })
 
-  test.skip("Can be moved 2 times left", () => {
+  test("Can be moved 2 times left", () => {
     board.moveActiveBlockLeft();
     board.moveActiveBlockLeft();
 
