@@ -2,8 +2,10 @@ export class RotatingShape {
   shapeMatrix;
   orientationCount;
   currentOrientation;
-  width;
-  height;
+  trueWidth;
+  trueHeight;
+  matrixWidth;
+  matrixHeight;
 
   constructor(s, o, c) {
     this.shapeMatrix = s;
@@ -39,9 +41,11 @@ export class RotatingShape {
     return s;
   }
 
-  getWidth() { return this.width; }
-  getHeight() { return this.height; }
+  getWidth() { return this.trueWidth; }
+  getHeight() { return this.trueHeight; }
   getMatrix() { return this.shapeMatrix; }
+  getMatrixWidth() { }
+  getMatrixHeight() {}
 
   rotateRight() {
     if (this.checkIfCannotRotate()) return this;
@@ -88,7 +92,7 @@ export class RotatingShape {
       });
       if (finalWidth < tempWidth) finalWidth = tempWidth;
     });
-    this.width = finalWidth;
+    this.trueWidth = finalWidth;
   }
 
   checkHeight() {
@@ -100,6 +104,6 @@ export class RotatingShape {
       }
       if (finalHeight < tempHeight) finalHeight = tempHeight;
     }
-    this.height = finalHeight;
+    this.trueHeight = finalHeight;
   }
 }

@@ -36,7 +36,7 @@ export class Board {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
     this.setActiveBlock(block);
-    this.activeBlockPositionX = Math.floor((this.width - block.length) / 2);
+    this.activeBlockPositionX = Math.floor((this.width - this.activeBlock.getMatrix()[0].length) / 2);
     this.activeBlockPositionY = 0;
     this.insertBlock2(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
@@ -92,7 +92,7 @@ export class Board {
   insertBlock2(block, positionY, positionX) {
     let boardRow = positionY;
     block.getMatrix().forEach((blockRow) => {
-      let boardSquare = positionX || Math.floor((this.width - blockRow.length) / 2);
+      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
         if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
         boardSquare++;
@@ -102,9 +102,9 @@ export class Board {
   }
 
   insertBlock(block, positionY, positionX) {
-    for (let boardRow = positionY; boardRow < boardRow + block.getHeight(); boardRow++) {
-      for (let boardSquare = positionX; boardSquare < boardSquare + block.getWidth(); boardSquare++) {
-        if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
+    for (let boardRow = positionY, blockRow = 0; blockRow < block.length; boardRow++, blockRow++) {
+      for (let boardSquare = positionX, blockSquare = 0; blockSquare < block[blockRow].length; boardSquare++, blockSquare++) {
+        if (block[blockRow][blockSquare] !== ".") this.boardMatrix[boardRow][boardSquare] = block[blockRow][blockSquare];
       }
     }
   }
