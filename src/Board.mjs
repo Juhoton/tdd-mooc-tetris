@@ -105,13 +105,9 @@ export class Board {
   }
 
   moveActiveBlockRight() {
-    this.boardMatrix = [
-      [".", ".", ".", ".", ".", "T", ".", ".", ".", "."],
-      [".", ".", ".", ".", "T", "T", "T", ".", ".", "."],
-      [".", ".", ".", ".", ".", ".", ".", ".", ".", "."],
-      [".", ".", ".", ".", ".", ".", ".", ".", ".", "."],
-      [".", ".", ".", ".", ".", ".", ".", ".", ".", "."],
-      [".", ".", ".", ".", ".", ".", ".", ".", ".", "."]]
+    this.removeActiveBlock();
+    this.activeBlockPositionX++;
+    this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
 
   moveActiveBlockDown() {
