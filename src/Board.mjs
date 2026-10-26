@@ -36,8 +36,9 @@ export class Board {
     if (this.hasFalling()) throw new Error("already falling");
     this.falling = true;
     this.setActiveBlock(block);
+    this.activeBlockPositionX = Math.floor((this.width - block.length) / 2);
     this.activeBlockPositionY = 0;
-    this.insertBlock(this.activeBlock, this.activeBlockPositionY);
+    this.insertBlock(this.activeBlock, this.activeBlockPositionY, this.activeBlockPositionX);
   }
 
   setActiveBlock(block) {
@@ -88,10 +89,10 @@ export class Board {
   }
 
   // removeActiveBlock and insertBlock might be duplications, but currently it doesn't seem worth it to change it
-  insertBlock(block, position) {
-    let boardRow = position;
+  insertBlock(block, positionY, positionX) {
+    let boardRow = positionY;
     block.getMatrix().forEach((blockRow) => {
-      let boardSquare = Math.floor((this.width - blockRow.length) / 2);
+      let boardSquare = positionX || Math.floor((this.width - blockRow.length) / 2);
       blockRow.forEach((blockSquare) => {
         if (blockSquare !== ".") this.boardMatrix[boardRow][boardSquare] = blockSquare;
         boardSquare++;
